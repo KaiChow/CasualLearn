@@ -35,7 +35,7 @@
             age: 23
         }
         for (var i in obj) {
-            console.log(i);
+            //console.log(i);
         }
 
         //-----------------------------------------------------------------------
@@ -62,9 +62,14 @@
         // console.log(obj_2);
         //此时 obj_1和obj_2的arr里面都有99，因此此时是引用类型的传地址，但实际情况中我们不需要这种联动的方式来操作
 
+
+        //或许以上并不是我们在实际编码中想要的结果，我们不希望父子对象之间产生关联，那么这时候可以用到深拷贝。既然属性值类型是数组和或象时只会传址，
+        //那么我们就用递归来解决这个问题，把父对象中所有属于对象的属性类型都遍历赋给子对象即可
+
         function Copy(p, c) {
             var c = c || {};
             for (var i in p) {
+
                 if (typeof p[i] === 'object') {
                     c[i] = (p[i].constructor === Array) ? [] : {};
                     Copy(p[i], c[i]);
@@ -77,12 +82,52 @@
 
         a.key2 = ['小辉', '小辉'];
         var b = {
-            
+
         };
         b = Copy(a, b);
         b.key2.push("大辉");
-        alert(b.key2); //小辉，小辉，大辉
-        alert(a.key2); //小辉，小辉
+        //alert(b.key2); //小辉，小辉，大辉
+        //alert(a.key2); //小辉，小辉
+
+        //检查数据类型
+        function checkType(data) {
+            if (!data) {
+                return data;
+            } else {
+                if (typeof data === 'object') {
+                    if (data.constructor === Array) {
+                        return 'array';
+                    }
+                    if (data.constructor === Object) {
+                        return 'object';
+                    }
+                    if (data.constructor === Function) {
+                        return 'function';
+                    }
+
+                } else {
+                    return typeof data;
+                }
+            }
+
+        }
+        var a = 1;
+        var b = "1212";
+        var c = [1, 2, 3];
+        var d = {
+            a: 2
+        };
+        var e = null;
+        var f = undefined;
+        var g = true;
+        console.log(checkType(a));
+        console.log(checkType(b));
+        console.log(checkType(c));
+        console.log(checkType(d));
+        console.log(checkType(e));
+        console.log(checkType(f));
+        console.log(checkType(g));
+        console.log(checkType(checkType));
     </script>
 </body>
 
