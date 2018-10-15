@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            'name': 'kevin',
+            age: 23,
+            sex: '男',
+            height: 178,
+            weight: 60
+        }
+        let {
+            name: str,
+            age = 20,
+            ...r
+        } = obj;
+
+        //console.log(str);
+        // console.log(age);
+        //console.log(r);
+
+
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            say() {
+                console.log(`My name is ${this.name},now ${this.age}`);
+            }
+        }
+
+        class Woman extends Person {
+            constructor(name, age, sex) {
+                super(name, age);
+                this.sex = sex;
+            }
+            say() {
+                console.log(`My name is ${this.name},now ${this.age},is ${this.sex}`);
+            }
+        }
+
+        var w1 = new Woman('alex', 23, '女');
+        //w1.say();
+
+        let obj1 = {
+            name: 'kevin',
+            age: 23
+        }
+        let obj2 = {
+            name: 'tom',
+            age: 30,
+            sex: '男'
+        }
+
+        var obj3 = {
+            name: "nikita"
+        }
+
+        let obj4 = Object.assign(obj1, obj3, obj2);
+        // console.log(obj1);
+        // console.log(obj2);
+        // console.log(obj3);
+
+        const name = (params) => {
+            return (params) => {
+                console.log(this);
+            }
+        }
+
+
+        var f1 = name();
+        //f1();
+
+
+        var p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({
+                    a: 3
+                });
+            }, 500)
+        });
+
+
+        p1.then((res) => {
+            return new Promise((resolve, reject) => {
+
+                resolve({
+                    b: 4
+                });
+            });
+        }).then((res) => {
+            return new Promise((resolve, reject) => {
+
+                resolve({
+                    c: 5
+                });
+            });
+        }).then((res) => {
+            return new Promise((resolve, reject) => {
+
+                resolve(res);
+            });
+        })
+
+
+        let a = 10;
+
+        function f() {
+            let a = 100;
+            console.log(this);
+            console.log(this.a);
+        }
+        f();
+
+
+        var ff = () => {
+            let a = 100;
+            console.log(this);
+            console.log(this.a);
+        }
+        let fn1 = f.call({
+            a: 90
+        });
+
+        let fn2 = ff.call({
+            a: 999
+        })
+    </script>
+</body>
+
+</html>
