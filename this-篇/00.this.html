@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">div</div>
+    <script>
+        var box = document.getElementById('box');
+
+        box.onclick = function () {
+
+            // box.style.backgroundColor = 'red';
+
+            // this.style.backgroundColor = 'red';
+ 
+            var _this = this;//this ---box ----<div id="box">div</div>
+            setTimeout(function(){
+                //  this ==window
+                //this.style.backgroundColor = 'red';//Cannot set property 'backgroundColor' of undefined
+                _this.style.backgroundColor = 'red';
+            },1000)
+        }
+    </script>
+</body>
+
+</html>

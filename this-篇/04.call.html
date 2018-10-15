@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Call</title>
+</head>
+
+<body>
+    <script>
+        function fn1() {
+            console.log(1);
+        }
+
+        fn1.call(); //1--直接调用
+
+        function fn2() {
+            console.log(this.a);
+        }
+
+        fn2.call({
+            a: 2
+        }) //2
+
+        function fn3(m, n) {
+            console.log(this.a, m, n);
+        }
+
+        fn3.call({
+            a: 2
+        }, 3, 5) // 2 3 5
+
+        //函数call 会直接调用该函数，并且call的第0个参数就时函数执行的this
+        //后面的参数是函数执行时候的参数
+    </script>
+</body>
+
+</html>

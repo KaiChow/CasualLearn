@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //原型链
+        
+        var p = {
+            a: 1,
+            fn: function () {
+                console.log(this.a);
+            }
+        }
+
+        var c = Object.create(p); //以p为模板创建 __proto__
+        console.log(c);
+        console.log(c.a);
+        c.fn();
+    </script>
+</body>
+
+</html>

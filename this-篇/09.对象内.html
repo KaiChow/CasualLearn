@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var a = 1;
+        // var obj = {
+        //     a: 2,
+        //     fn: function () {
+        //         console.log(this.a)
+        //     }
+        // }
+
+        // obj.fn();
+        // obj.fn.bind({
+        //     a: "momo"
+        // })();
+        //---------------------------------------------------------
+        // var obj2 = {
+        //     a: 2
+        // }
+
+        // var fn2 = function () {
+        //     console.log(this.a);
+        // }
+
+        // var fn3 = () => {
+        //     console.log(this.a);
+        // }
+
+        // obj2.fn = fn2;
+        // obj2.fn1 = fn3;
+        // obj2.fn();
+        // obj2.fn1();
+        //----------------------------------------------------
+      //  'use strict'
+
+        var a = 3;
+
+        var obj3 = {
+            a: 4,
+            o: {
+                a: 5,
+                fn: function () {
+                    console.log(this.a);//--3  
+                }
+            }
+        }
+
+        var temp = obj3.o.fn;
+        temp();//实际上是  window.temp()
+    </script>
+</body>
+
+</html>

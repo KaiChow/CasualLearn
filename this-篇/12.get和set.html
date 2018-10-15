@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            n: 1,
+            m: 2,
+            get sum(){
+                console.log("正在尝试访问 sum。。。。");
+                return this.m+this.n;
+            },
+            set sum(zm){
+                this.m=zm/2;
+                this.n=zm/2;
+                console.log("正在尝试设置 sum。。。。");
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

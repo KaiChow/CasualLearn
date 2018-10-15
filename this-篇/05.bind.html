@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            console.log(this.a);
+        }
+
+        //改指向  只改变一次
+        var fn1 = fn.bind({
+            a: 3
+        });
+        var fn2 = fn.bind({
+            a: 4
+        });
+        var fn3 = fn.bind({
+            a: 5
+        });
+
+        var fn4 = fn1.bind({
+            a: 6
+        });
+
+        fn1(); //  3
+        fn2(); //  4
+        fn3(); //  5
+        fn4(); //  3
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            this.a = 10;
+
+            // return 1;
+            return {a:100};//返回非null的对象，那么实例化后的结果就是返回的对象
+        }
+
+        var f = new fn();
+        console.log(f.a);//100
+    </script>
+</body>
+
+</html>
