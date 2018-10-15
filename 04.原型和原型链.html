@@ -46,6 +46,8 @@
         console.log(p1.__proto__ === Person.prototype); // true
         //3,constructor :每个原型都有一个constructor属性，来指向关联的构造函数
         console.log(Person === Person.prototype.constructor); // true
+
+        console.log(typeof Function.prototype);
         Person.prototype.name = 'kevin';
         delete p1.name;
         console.log(p1); //Person {age: 23}

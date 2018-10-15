@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Base() {
+
+        }
+        var obj = new Base();
+
+        //(1) 创建一个新对象；
+        //(2) 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；
+        //(3) 执行构造函数中的代码（为这个新对象添加属性） ；
+        //(4) 返回新对象。
+
+        //内部  obj.__proto__ = Base.prototype;
+        //及是--类似操作 :
+        //1,var obj = {};
+        //2,obj.__proto__ = Base.prototype;
+        //3,Base.call(obj);更改this指向
+    </script>
+</body>
+
+</html>
