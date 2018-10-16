@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Object.create创建对象是创建一个拥有指定原型和若干个指定属性的对象，也就是说可以任意指定原型，甚至是null, 而new Object（）只是创建了一个以Object.prototype为原型的对象。如果此处你new
+        //Object泛指通过new操作符来创建一个实例对象的话，只要运用得当，二者并不太大差别。
+        var o = Object.create(Object.prototype, {
+            // foo会成为所创建对象的数据属性
+            foo: {
+                writable: true,
+                configurable: true,
+                value: "hello"
+            },
+            // bar会成为所创建对象的访问器属性
+            bar: {
+                configurable: false,
+                get: function () {
+                    return 10
+                },
+                set: function (value) {
+                    console.log("Setting `o.bar` to", value);
+                }
+            }
+        });
+        //console.log(o);
+
+        //new object()
+
+        var obj = {
+            name: "kevin",
+            arr: [1, 2, 3, 4],
+            fn: function () {
+                console.log('object');
+            }
+        }
+        var obj_1 = Object.create(obj);
+        console.log(obj_1);
+        obj_1.fn(); // object
+        console.log(obj_1.name);
+        console.log(obj_1.arr);
+        obj_1.arr.push(56);
+        obj_1.name = "tom";
+        obj_1.arr = [3,5];
+        console.log(obj_1);
+
+        var obj_2 = new Object();
+        console.log(obj_2); //{}
+
+        var obj_3 = {};
+        console.log(obj_3); //{}
+
+
+
+
+        /**
+        Object.create = function (o) {
+            var F = function () {};
+            F.prototype = o;
+            return new F();
+        };
+        */
+    </script>
+</body>
+
+</html>
